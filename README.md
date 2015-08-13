@@ -21,3 +21,24 @@ C++ code to find eth0 in linux
 <h2>Work Distribution</h2>
 All workd distribution are equally divided among members
 
+<h2>c++ code to view eth0 on linux</h2>
+```c++
+#include <stdio.h>
+int main()
+{
+	
+	FILE *fp;
+
+	char returnData[64];
+
+	fp = popen("/sbin/ifconfig eth0", "r");
+
+	while (fgets(returnData, 64, fp) != NULL)
+	{
+		printf("%s", returnData);
+	}
+
+	pclose(fp);
+}
+```
+
